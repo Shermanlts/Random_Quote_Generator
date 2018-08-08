@@ -71,7 +71,6 @@ function getRandomQuote() {
 	else {
 		selection = getRandom(quotesHolder.length);
 	}
-	console.log('I am returing: ' + quotesHolder[selection])
 	return quotesHolder[selection]
 }
 
@@ -79,7 +78,11 @@ function getRandomQuote() {
 // Create the printQuote funtion and name it printQuote
 function printQuote() {
 	var quote = getRandomQuote();
-	console.log(quote.quote);
+	var location = document.getElementById('quote-box');
+	var message = '<p class="quote">' + quote.quote + '</p>';
+	message = message + '<p class="source">' + quote.source;
+	message = message + '<span class="link"><a href=' + quote.bio + ' target="_blank">Bio</a></span></p>';
+	location.innerHTML = message
 
 }
 
