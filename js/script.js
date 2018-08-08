@@ -79,6 +79,7 @@ function getRandomQuote() {
 // Create the printQuote funtion and name it printQuote
 function printQuote() {
 	var quote = getRandomQuote();
+	console.log(quote.quote);
 
 }
 

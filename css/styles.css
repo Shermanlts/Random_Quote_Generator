@@ -63,7 +63,7 @@ body {
   font-style: normal;
 }
 
-.year:before {
+.link:before {
   content: ", ";
   font-style: normal;
 }
