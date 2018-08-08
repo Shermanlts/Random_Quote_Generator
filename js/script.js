@@ -1,6 +1,9 @@
 /*
 Great Thinker Random quote generator.
 */
+var timer = 1; //timer is used to refresh the page when idle.
+var timeOut = 20; //how long the page will wait before refreshing
+
 
 // 20 quotes used as source.
 quotes = [
@@ -49,7 +52,6 @@ quotes = [
 // quotesHolder holds the current list of available quotes without modifying the original
 var quotesHolder = quotes.slice();
 
-
 // Returns a random number(0-(num-1))
 function getRandom(num) {
 	var choice = Math.floor(Math.random() * num);
@@ -60,6 +62,7 @@ function getRandom(num) {
 // Create the getRandomQuuote function and name it getRandomQuote
 function getRandomQuote() {
 	var selection
+	console.log(quotesHolder.length);
 	//Checks if any quotes are remaining and if not refills the list
 	if (quotesHolder.length === 0) {
 		quotesHolder = quotes.slice();
@@ -71,21 +74,38 @@ function getRandomQuote() {
 	else {
 		selection = getRandom(quotesHolder.length);
 	}
-	return quotesHolder[selection]
+	//stores quote and then removes it from the list
+	var selectedQuote = quotesHolder[selection]
+	quotesHolder.splice(selection, 1)
+	return selectedQuote
 }
 
 
 // Create the printQuote funtion and name it printQuote
 function printQuote() {
+	timer = 1 //resets timer after selection
 	var quote = getRandomQuote();
 	var location = document.getElementById('quote-box');
 	var message = '<p class="quote">' + quote.quote + '</p>';
 	message = message + '<p class="source">' + quote.source;
 	message = message + '<span class="link"><a href=' + quote.bio + ' target="_blank">Bio</a></span></p>';
 	location.innerHTML = message
-
 }
 
+
+function idleTimer() {
+	if ( timer >= timeOut) {
+		printQuote();
+		timer = 1;
+	}
+	else {
+		timer += 1;
+	}
+}
+
+setInterval(idleTimer, 1000);
+
+//Resets quote at each restart
 printQuote();
 
 // This event listener will respond to "Show another quote" button clicks
