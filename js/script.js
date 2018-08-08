@@ -1,6 +1,51 @@
-// FSJS - Random Quote Generator
+/*
+Great Thinker Random quote generator.
+*/
 
-// Create the array of quote objects and name it quotes
+// 20 quotes used as source.
+quotes = [
+	{quote: 'I don\'t care that they stole my idea... I care that they don\'t have any of their own.'
+	source: 'Nikola Tesla' bio: 'http://en.wikipedia.org/wiki/Nikola_Tesla'},
+	{quote: 'It\'s not the love you make. It\'s the love you give.'
+	source: 'Nikola Tesla' bio: 'http://en.wikipedia.org/wiki/Nikola_Tesla'},
+	{quote: 'Of all things, I liked books best'
+	source: 'Nikola Tesla' bio: 'http://en.wikipedia.org/wiki/Nikola_Tesla'},
+	{quote: 'Only two things are infinite, the universe and human stupidity, and I\'m not sure about the former.'
+	source: 'Albert Einstein' bio: 'http://en.wikipedia.org/wiki/Albert_Einstein'},
+	{quote: 'The difference between stupidity and genius is that genius has its limits.'
+	source: 'Albert Einstein' bio: 'http://en.wikipedia.org/wiki/Albert_Einstein'},
+	{quote: 'Intellectuals solve problems, geniuses prevent them.'
+	source: 'Albert Einstein' bio: 'http://en.wikipedia.org/wiki/Albert_Einstein'},
+	{quote: 'Education is what remains after one has forgotten what one has learned in school.'
+	source: 'Albert Einstein' bio: 'http://en.wikipedia.org/wiki/Albert_Einstein'},
+	{quote: 'No man should escape our universities without knowing how little he knows.'
+	source: 'J. Robert Oppenheimer' bio: 'http://en.wikipedia.org/wiki/J._Robert_Oppenheimer'},
+	{quote: 'The optimist thinks this is the best of all possible worlds. The pessimist fears it is true.'
+	source: 'J. Robert Oppenheimer' bio: 'http://en.wikipedia.org/wiki/J._Robert_Oppenheimer'},
+	{quote: 'There is no great genius without some touch of madness.'
+	source: 'Aristotle' bio: 'http://en.wikipedia.org/wiki/Aristotle'},
+	{quote: 'It is the mark of an educated mind to be able to entertain a thought without accepting it.'
+	source: 'Aristotle' bio: 'http://en.wikipedia.org/wiki/Aristotle'},
+	{quote: 'I know that I am intelligent because I know that I know nothing.'
+	source: 'Socrates' bio: 'http://en.wikipedia.org/wiki/Socrates'},
+	{quote: 'I was really too honest a man to be a politican and live.'
+	source: 'Socrates' bio: 'http://en.wikipedia.org/wiki/Socrates'},
+	{quote: 'Our greatest glory is not in never falling, but in rising every time we fall.'
+	source: 'Confucius' bio: 'http://en.wikipedia.org/wiki/Confucius'},
+	{quote: 'The superior man understands what is right; the inferior man understands what will sell.'
+	source: 'Confucius' bio: 'http://en.wikipedia.org/wiki/Confucius'},
+	{quote: 'That which does not kill us makes us stronger.'
+	source: 'Friedrich Nietzsche' bio: 'http://en.wikipedia.org/wiki/Friedrich_Nietzsche'},
+	{quote: 'History repeats itself, first as tragedy, second as farce.'
+	source: 'Karl Marx' bio: 'http://en.wikipedia.org/wiki/Karl_Marx'},
+	{quote: 'Intelligence is the ability to adapt to change.'
+	source: 'Stephen Hawking' bio: 'http://en.wikipedia.org/wiki/Stephen_Hawking'},
+	{quote: 'Life would be tragic if it weren\'t funny.'
+	source: 'Stephen Hawking' bio: 'http://en.wikipedia.org/wiki/Stephen_Hawking'},
+	{quote: 'Scientists have become the bearers of the torch of discovery in our quest for knowledge.'
+	source: 'Stephen Hawking' bio: 'http://en.wikipedia.org/wiki/Stephen_Hawking'}
+];
+
 
 
 
