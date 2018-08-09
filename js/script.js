@@ -55,48 +55,61 @@ var quotesHolder = quotes.slice();
 // Returns a random number(0-(num-1))
 function getRandom(num) {
 	var choice = Math.floor(Math.random() * num);
-	return choice
+	return choice;
 }
 
 
 // Create the getRandomQuuote function and name it getRandomQuote
 function getRandomQuote() {
 	var selection
-	console.log(quotesHolder.length);
 	//Checks if any quotes are remaining and if not refills the list
 	if (quotesHolder.length === 0) {
 		quotesHolder = quotes.slice();
 		selection = getRandom(quotesHolder.length);
 	} 
 	else if (quotesHolder.length === 1) {
-		selection = 0
+		selection = 0;
 	} 
 	else {
 		selection = getRandom(quotesHolder.length);
 	}
 	//stores quote and then removes it from the list
-	var selectedQuote = quotesHolder[selection]
-	quotesHolder.splice(selection, 1)
-	return selectedQuote
+	var selectedQuote = quotesHolder[selection];
+	quotesHolder.splice(selection, 1);
+	return selectedQuote;
+}
+
+/*
+Creates and formats a new background color string and returns it.
+Note that this cannot create white(256, 256, 256) which would hide text.
+*/
+function randomColor() {
+	var colorArray = [];
+	for (i = 1; i <= 3; i++) {
+		colorArray.push(getRandom(256)); 
+	} 
+	return 'rgb(' + colorArray[0] + ',' + colorArray[1] + ',' + colorArray[2] + ')';
 }
 
 
-// Create the printQuote funtion and name it printQuote
+// printQuote changes the quote and background color
 function printQuote() {
-	timer = 1 //resets timer after selection
+	timer = 1; //resets timer
 	var quote = getRandomQuote();
 	var location = document.getElementById('quote-box');
 	var message = '<p class="quote">' + quote.quote + '</p>';
 	message = message + '<p class="source">' + quote.source;
 	message = message + '<span class="link"><a href=' + quote.bio + ' target="_blank">Bio</a></span></p>';
-	location.innerHTML = message
+	backgroundColor = randomColor();
+	document.body.style.backgroundColor = backgroundColor;
+	location.innerHTML = message;
+
 }
 
 
 function idleTimer() {
 	if ( timer >= timeOut) {
 		printQuote();
-		timer = 1;
 	}
 	else {
 		timer += 1;
