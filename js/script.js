@@ -115,7 +115,7 @@ function idleTimer() {
 		timer += 1;
 	}
 }
-
+//Starts the idle timer
 setInterval(idleTimer, 1000);
 
 //Resets quote at each restart
