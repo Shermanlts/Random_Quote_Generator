@@ -81,12 +81,12 @@ function getRandomQuote() {
 
 /*
 Creates and formats a new background color string and returns it.
-Note that this cannot create white(256, 256, 256) which would hide text.
+Note that this cannot create white(255, 255, 255) which would hide text.
 */
 function randomColor() {
 	var colorArray = [];
 	for (i = 1; i <= 3; i++) {
-		colorArray.push(getRandom(256)); 
+		colorArray.push(getRandom(255)); 
 	} 
 	return 'rgb(' + colorArray[0] + ',' + colorArray[1] + ',' + colorArray[2] + ')';
 }
