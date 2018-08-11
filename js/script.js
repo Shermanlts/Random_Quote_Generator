@@ -91,8 +91,14 @@ function randomColor() {
 	return 'rgb(' + colorArray[0] + ',' + colorArray[1] + ',' + colorArray[2] + ')';
 }
 
+//Gets a random color and assigns it to the background.
+function randomBackground() {
+	var backgroundColor = randomColor();
+	document.body.style.backgroundColor = backgroundColor;
+}
 
-// printQuote changes the quote and background color
+
+// printQuote changes the quote
 function printQuote() {
 	timer = 1; //resets timer
 	var quote = getRandomQuote();
@@ -100,13 +106,11 @@ function printQuote() {
 	var message = '<p class="quote">' + quote.quote + '</p>';
 	message = message + '<p class="source">' + quote.source;
 	message = message + '<span class="link"><a href=' + quote.bio + ' target="_blank">Bio</a></span></p>';
-	backgroundColor = randomColor();
-	document.body.style.backgroundColor = backgroundColor;
 	location.innerHTML = message;
-
+	randomBackground();
 }
 
-
+//Sets a constant timer used to refresh quotes.
 function idleTimer() {
 	if ( timer >= timeOut) {
 		printQuote();
