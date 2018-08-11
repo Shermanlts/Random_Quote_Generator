@@ -8,45 +8,65 @@ var timeOut = 20; //how long the page will wait before refreshing
 // 20 quotes used as source.
 quotes = [
 	{quote: 'I don\'t care that they stole my idea... I care that they don\'t have any of their own.',
-	source: 'Nikola Tesla', bio: 'http://en.wikipedia.org/wiki/Nikola_Tesla'},
+	source: 'Nikola Tesla', bio: 'http://en.wikipedia.org/wiki/Nikola_Tesla',
+	career: "Inventor"},
 	{quote: 'It\'s not the love you make. It\'s the love you give.',
-	source: 'Nikola Tesla', bio: 'http://en.wikipedia.org/wiki/Nikola_Tesla'},
+	source: 'Nikola Tesla', bio: 'http://en.wikipedia.org/wiki/Nikola_Tesla',
+	career: "Inventor"},
 	{quote: 'Of all things, I liked books best',
-	source: 'Nikola Tesla', bio: 'http://en.wikipedia.org/wiki/Nikola_Tesla'},
+	source: 'Nikola Tesla', bio: 'http://en.wikipedia.org/wiki/Nikola_Tesla',
+	career: "Inventor"},
 	{quote: 'Only two things are infinite, the universe and human stupidity, and I\'m not sure about the former.',
-	source: 'Albert Einstein', bio: 'http://en.wikipedia.org/wiki/Albert_Einstein'},
+	source: 'Albert Einstein', bio: 'http://en.wikipedia.org/wiki/Albert_Einstein',
+	career: "Physicist"},
 	{quote: 'The difference between stupidity and genius is that genius has its limits.',
-	source: 'Albert Einstein', bio: 'http://en.wikipedia.org/wiki/Albert_Einstein'},
+	source: 'Albert Einstein', bio: 'http://en.wikipedia.org/wiki/Albert_Einstein',
+	career: "Physicist"},
 	{quote: 'Intellectuals solve problems, geniuses prevent them.',
-	source: 'Albert Einstein', bio: 'http://en.wikipedia.org/wiki/Albert_Einstein'},
+	source: 'Albert Einstein', bio: 'http://en.wikipedia.org/wiki/Albert_Einstein',
+	career: "Physicist"},
 	{quote: 'Education is what remains after one has forgotten what one has learned in school.',
-	source: 'Albert Einstein', bio: 'http://en.wikipedia.org/wiki/Albert_Einstein'},
+	source: 'Albert Einstein', bio: 'http://en.wikipedia.org/wiki/Albert_Einstein',
+	career: "Physicist"},
 	{quote: 'No man should escape our universities without knowing how little he knows.',
-	source: 'J. Robert Oppenheimer', bio: 'http://en.wikipedia.org/wiki/J._Robert_Oppenheimer'},
+	source: 'J. Robert Oppenheimer', bio: 'http://en.wikipedia.org/wiki/J._Robert_Oppenheimer',
+	career: "Physicist"},
 	{quote: 'The optimist thinks this is the best of all possible worlds. The pessimist fears it is true.',
-	source: 'J. Robert Oppenheimer', bio: 'http://en.wikipedia.org/wiki/J._Robert_Oppenheimer'},
+	source: 'J. Robert Oppenheimer', bio: 'http://en.wikipedia.org/wiki/J._Robert_Oppenheimer',
+	career: "Physicist"},
 	{quote: 'There is no great genius without some touch of madness.',
-	source: 'Aristotle', bio: 'http://en.wikipedia.org/wiki/Aristotle'},
+	source: 'Aristotle', bio: 'http://en.wikipedia.org/wiki/Aristotle',
+	career: "Philosopher"},
 	{quote: 'It is the mark of an educated mind to be able to entertain a thought without accepting it.',
-	source: 'Aristotle', bio: 'http://en.wikipedia.org/wiki/Aristotle'},
+	source: 'Aristotle', bio: 'http://en.wikipedia.org/wiki/Aristotle',
+	career: "Philosopher"},
 	{quote: 'I know that I am intelligent because I know that I know nothing.',
-	source: 'Socrates', bio: 'http://en.wikipedia.org/wiki/Socrates'},
+	source: 'Socrates', bio: 'http://en.wikipedia.org/wiki/Socrates',
+	career: "Philosopher"},
 	{quote: 'I was really too honest a man to be a politican and live.',
-	source: 'Socrates', bio: 'http://en.wikipedia.org/wiki/Socrates'},
+	source: 'Socrates', bio: 'http://en.wikipedia.org/wiki/Socrates',
+	career: "Philosopher"},
 	{quote: 'Our greatest glory is not in never falling, but in rising every time we fall.',
-	source: 'Confucius', bio: 'http://en.wikipedia.org/wiki/Confucius'},
+	source: 'Confucius', bio: 'http://en.wikipedia.org/wiki/Confucius',
+	career: "Philosopher"},
 	{quote: 'The superior man understands what is right; the inferior man understands what will sell.',
-	source: 'Confucius', bio: 'http://en.wikipedia.org/wiki/Confucius'},
+	source: 'Confucius', bio: 'http://en.wikipedia.org/wiki/Confucius',
+	career: "Philosopher"},
 	{quote: 'That which does not kill us makes us stronger.',
-	source: 'Friedrich Nietzsche', bio: 'http://en.wikipedia.org/wiki/Friedrich_Nietzsche'},
+	source: 'Friedrich Nietzsche', bio: 'http://en.wikipedia.org/wiki/Friedrich_Nietzsche',
+	career: "Philosopher"},
 	{quote: 'History repeats itself, first as tragedy, second as farce.',
-	source: 'Karl Marx', bio: 'http://en.wikipedia.org/wiki/Karl_Marx'},
+	source: 'Karl Marx', bio: 'http://en.wikipedia.org/wiki/Karl_Marx',
+	career: "Philosopher"},
 	{quote: 'Intelligence is the ability to adapt to change.',
-	source: 'Stephen Hawking', bio: 'http://en.wikipedia.org/wiki/Stephen_Hawking'},
+	source: 'Stephen Hawking', bio: 'http://en.wikipedia.org/wiki/Stephen_Hawking',
+	career: "Physicist"},
 	{quote: 'Life would be tragic if it weren\'t funny.',
-	source: 'Stephen Hawking', bio: 'http://en.wikipedia.org/wiki/Stephen_Hawking'},
+	source: 'Stephen Hawking', bio: 'http://en.wikipedia.org/wiki/Stephen_Hawking',
+	career: "Physicist"},
 	{quote: 'Scientists have become the bearers of the torch of discovery in our quest for knowledge.',
-	source: 'Stephen Hawking', bio: 'http://en.wikipedia.org/wiki/Stephen_Hawking'}
+	source: 'Stephen Hawking', bio: 'http://en.wikipedia.org/wiki/Stephen_Hawking',
+	career: "Physicist"}
 ];
 
 // quotesHolder holds the current list of available quotes without modifying the original
@@ -103,8 +123,10 @@ function printQuote() {
 	timer = 1; //resets timer
 	var quote = getRandomQuote();
 	var location = document.getElementById('quote-box');
+    //  <p class="source">Patrick McKenzie<span class="profession">Twitter</span><span class="link"></span></p>
 	var message = '<p class="quote">' + quote.quote + '</p>';
 	message = message + '<p class="source">' + quote.source;
+	message = message + '<span class="profession">' + quote.career + '</span>';
 	message = message + '<span class="link"><a href=' + quote.bio + ' target="_blank">Bio</a></span></p>';
 	location.innerHTML = message;
 	randomBackground();

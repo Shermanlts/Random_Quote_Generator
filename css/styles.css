@@ -54,11 +54,11 @@ body {
   content: "—";
 }
 
-.citation {
+.profession {
   font-style: italic;
 }
 
-.citation:before {
+.profession:before {
   content: ", ";
   font-style: normal;
 }
